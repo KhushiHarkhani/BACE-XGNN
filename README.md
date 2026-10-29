@@ -120,13 +120,15 @@ artifacts/                    trained models and metrics.json
 
 ![BACE-XGNN Prediction Interface](docs/images/frontend2_image.png)
 
-### Model Performance Dashboard
-
-![BACE-XGNN Performance Dashboard](docs/images/frontend3_image.png)
-
 ### Additional Frontend View
 
-![BACE-XGNN Additional View](docs/images/frontend4_image.png)
+![BACE-XGNN Additional View](docs/images/frontend3_image.png)
+
+
+### Model Performance Dashboard
+
+
+![BACE-XGNN Performance Dashboard](docs/images/frontend4_image.png)
 
 ### Confusion Matrix
 
