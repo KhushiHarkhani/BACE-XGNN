@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Palette lifted from the Phase 1 deck: teal-slate frame, lilac/pink panels, navy ink, olive-gold accent. */
+:root {
+  --frame: #6f9097;
+  --frame-dark: #5a7a81;
+  --sheet: #fbf8fb;
+  --lilac: #f1e4f1;
+  --lilac-2: #e8d3e8;
+  --mint: #e3eeee;
+  --sand: #f3eddb;
+  --ink: #12384a;
+  --ink-2: #4a6572;
+  --muted: #7d939c;
+  --line: #d9e1e3;
+  --pink: #c27ab8;
+  --pink-deep: #a8509d;
+  --gold: #a58e2a;
+  --pos: #d0508e;
+  --neg: #2f8a93;
+  --good: #2f8a6a;
+  --bad: #c0505a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--frame);
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgb(255 255 255 / 0.16), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgb(0 0 0 / 0.12), transparent 60%);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display { font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.02em; }
+.accent { color: var(--pink); }
+.mono { font-family: var(--font-mono), ui-monospace, monospace; }
+
+/* the "slide": white sheet inset in the teal frame */
+.sheet {
+  background: var(--sheet);
+  border-radius: 28px;
+  box-shadow: 0 30px 80px -30px rgb(10 40 50 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.5) inset;
+}
+
+.card { border-radius: 20px; padding: 1.4rem; background: var(--lilac); border: 1px solid rgb(168 80 157 / 0.12); }
+.card.mint { background: var(--mint); border-color: rgb(47 138 147 / 0.15); }
+.card.sand { background: var(--sand); border-color: rgb(165 142 42 / 0.2); }
+.card.paper { background: #fff; border-color: var(--line); }
+
+.eyebrow { font-family: var(--font-mono), monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: 999px; padding: .8rem 1.4rem; font-weight: 600; font-size: .95rem;
+  background: var(--ink); color: #fff; transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 24px -10px rgb(18 56 74 / 0.6); background: #0b2b3b; }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.btn.ghost:hover:not(:disabled) { background: var(--ink); color: #fff; }
+
+.chip { display: inline-flex; align-items: center; gap: .4rem; border-radius: 999px; padding: .25rem .7rem; font-size: .78rem; font-weight: 600; background: #fff; border: 1px solid var(--line); }
+
+/* scroll reveal */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); transition-delay: var(--d, 0ms); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* hero heading: each line lifts out of a mask, like the portfolio */
+.lift { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.lift > span { display: inline-block; transform: translateY(115%); animation: lift 1s cubic-bezier(.22,1,.36,1) forwards; animation-delay: var(--d, 0ms); }
+@keyframes lift { to { transform: none; } }
+
+/* message-passing pulse running along bonds */
+@keyframes flow { to { stroke-dashoffset: var(--off, -28px); } }
+.flow { animation: flow 1.6s linear infinite; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.2px); } }
+.bob { animation: bob 4.5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes halo { 0%,100% { opacity: .16; } 50% { opacity: .3; } }
+.halo { animation: halo 2.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.skeleton { background: linear-gradient(90deg, var(--lilac) 25%, #fff 37%, var(--lilac) 63%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; border-radius: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .lift > span { transform: none; animation: none; }
+  .flow, .bob, .halo, .skeleton { animation: none; }
+  html { scroll-behavior: auto; }
+}

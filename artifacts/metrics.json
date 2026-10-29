@@ -1,0 +1,198 @@
+{
+  "blocks": [
+    {
+      "title": "Random split, 5-fold cross-validation",
+      "note": "Each molecule is tested once, by a model that did not train on it.",
+      "rows": [
+        {
+          "model": "D-MPNN (GNN) alone",
+          "accuracy": 0.8136187790964527,
+          "acc_sd": 0.00816573804520245,
+          "auc": 0.8720092534885442,
+          "f1": 0.795355587808418,
+          "mcc": 0.6242505972512665,
+          "sens": 0.7930535455861071,
+          "spec": 0.8309002433090025,
+          "inner_acc": 0.8104762814694502
+        },
+        {
+          "model": "Best single base model (CatBoost)",
+          "accuracy": 0.8129499704937381,
+          "acc_sd": 0.011998998978795606,
+          "auc": 0.8890998623244284,
+          "f1": 0.8065618591934381,
+          "mcc": 0.6301811435006257,
+          "sens": 0.85383502170767,
+          "spec": 0.7785888077858881,
+          "inner_acc": 0.8129550743528673
+        },
+        {
+          "model": "Stack of 6 base models",
+          "accuracy": 0.837407383122418,
+          "acc_sd": 0.012791650564132067,
+          "auc": 0.9061895908817221,
+          "f1": 0.8289290681502086,
+          "mcc": 0.6763239136969212,
+          "sens": 0.8625180897250362,
+          "spec": 0.816301703163017,
+          "inner_acc": 0.837905562645447
+        },
+        {
+          "model": "Stack + D-MPNN (final)",
+          "accuracy": 0.8380783773741612,
+          "acc_sd": 0.01053042526419679,
+          "auc": 0.9074739173453615,
+          "f1": 0.8302148302148302,
+          "mcc": 0.6781838593836211,
+          "sens": 0.8668596237337193,
+          "spec": 0.8138686131386861,
+          "inner_acc": 0.8387320089264388
+        }
+      ]
+    },
+    {
+      "title": "Scaffold split (randomised), 3 seeds",
+      "note": "Scaffold families held out. Order shuffled per seed.",
+      "rows": [
+        {
+          "model": "D-MPNN (GNN) alone",
+          "accuracy": 0.8070175438596491,
+          "acc_sd": 0.024222282932428212,
+          "auc": 0.8640438148899702,
+          "f1": 0.7832512315270936,
+          "mcc": 0.6125069488795738,
+          "sens": 0.8238341968911918,
+          "spec": 0.7946768060836502,
+          "inner_acc": 0.819495469017879
+        },
+        {
+          "model": "Best single base model (CatBoost)",
+          "accuracy": 0.8026315789473685,
+          "acc_sd": 0.024616167018249622,
+          "auc": 0.8746035185878367,
+          "f1": 0.765625,
+          "mcc": 0.5952025260344593,
+          "sens": 0.7616580310880829,
+          "spec": 0.8326996197718631,
+          "inner_acc": 0.8226794024001959
+        },
+        {
+          "model": "Stack of 6 base models",
+          "accuracy": 0.8223684210526315,
+          "acc_sd": 0.02341464528954233,
+          "auc": 0.9097499950747651,
+          "f1": 0.7885117493472585,
+          "mcc": 0.6354667907299398,
+          "sens": 0.7823834196891192,
+          "spec": 0.8517110266159695,
+          "inner_acc": 0.843252510409013
+        },
+        {
+          "model": "Stack + D-MPNN (final)",
+          "accuracy": 0.8201754385964913,
+          "acc_sd": 0.024810764252159535,
+          "auc": 0.9066175456569278,
+          "f1": 0.7853403141361257,
+          "mcc": 0.630754904920006,
+          "sens": 0.7772020725388601,
+          "spec": 0.8517110266159695,
+          "inner_acc": 0.8410482488366396
+        }
+      ]
+    },
+    {
+      "title": "Scaffold split (strict, deterministic)",
+      "note": "Rarest scaffolds go to test. One 152-molecule split.",
+      "rows": [
+        {
+          "model": "D-MPNN (GNN) alone",
+          "accuracy": 0.6973684210526315,
+          "acc_sd": 0.0,
+          "auc": 0.8152173913043478,
+          "f1": 0.7051282051282052,
+          "mcc": 0.44335091027792956,
+          "sens": 0.5978260869565217,
+          "spec": 0.85,
+          "inner_acc": 0.8280675973548861
+        },
+        {
+          "model": "Best single base model (CatBoost)",
+          "accuracy": 0.7631578947368421,
+          "acc_sd": 0.0,
+          "auc": 0.8375,
+          "f1": 0.788235294117647,
+          "mcc": 0.5328992780098127,
+          "sens": 0.7282608695652174,
+          "spec": 0.8166666666666667,
+          "inner_acc": 0.8251285819250551
+        },
+        {
+          "model": "Stack of 6 base models",
+          "accuracy": 0.75,
+          "acc_sd": 0.0,
+          "auc": 0.8764492753623188,
+          "f1": 0.7625,
+          "mcc": 0.5371155168032075,
+          "sens": 0.6630434782608695,
+          "spec": 0.8833333333333333,
+          "inner_acc": 0.8354151359294636
+        },
+        {
+          "model": "Stack + D-MPNN (final)",
+          "accuracy": 0.75,
+          "acc_sd": 0.0,
+          "auc": 0.8594202898550725,
+          "f1": 0.759493670886076,
+          "mcc": 0.5445330328985006,
+          "sens": 0.6521739130434783,
+          "spec": 0.9,
+          "inner_acc": 0.8398236590742102
+        }
+      ]
+    }
+  ],
+  "ceiling": {
+    "rule_match": 0.9887640449438202,
+    "bins": [
+      {
+        "label": "within 0.25",
+        "n": 222,
+        "share": 0.14672835426305353,
+        "accuracy": 0.6711711711711712
+      },
+      {
+        "label": "0.25 to 0.5",
+        "n": 207,
+        "share": 0.13681427627230666,
+        "accuracy": 0.7101449275362319
+      },
+      {
+        "label": "0.5 to 1",
+        "n": 395,
+        "share": 0.26107072042300067,
+        "accuracy": 0.8354430379746836
+      },
+      {
+        "label": "over 1",
+        "n": 689,
+        "share": 0.4553866490416391,
+        "accuracy": 0.9317851959361393
+      }
+    ],
+    "near_share_of_molecules": 0.2835426305353602,
+    "near_share_of_errors": 0.5428571428571428
+  },
+  "dataset": {
+    "molecules": 1513,
+    "inhibitors": 691,
+    "non_inhibitors": 822,
+    "source": "MoleculeNet BACE"
+  },
+  "caveats": [
+    "All numbers are out-of-fold. The stacker, threshold and early stopping use training data only.",
+    "pIC50 and canvasUID are excluded from features. Class matches pIC50 >= 7 for 98.9% of molecules, and canvasUID is a row ID in a class-sorted file (0.9998 AUC alone).",
+    "pIC50 is an extra training target for the GNN, never an input.",
+    "The demo models train on all 1,513 molecules. Only the cross-validated numbers are test results.",
+    "Scaffold splits are harder than random splits. Explanations show model behaviour, not binding mechanisms."
+  ]
+}

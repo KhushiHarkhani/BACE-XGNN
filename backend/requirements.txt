@@ -1,0 +1,12 @@
+numpy
+pandas
+scipy
+joblib
+scikit-learn>=1.5
+lightgbm>=4.0
+catboost>=1.2
+rdkit>=2024.3
+torch>=2.2
+torch_geometric>=2.5
+fastapi>=0.110
+uvicorn>=0.27

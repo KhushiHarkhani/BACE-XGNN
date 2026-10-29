@@ -1,0 +1,26 @@
+
+# Trained models and cached arrays
+artifacts/*.pt
+artifacts/*.joblib
+data/*.npz
+
+# Logs and Python caches
+*.log
+__pycache__/
+*.py[cod]
+catboost_info/
+
+# Python virtual environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Frontend dependencies and build output
+node_modules/
+.next/
