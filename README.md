@@ -108,3 +108,30 @@ artifacts/                    trained models and metrics.json
 - The strict scaffold result is a single 152-molecule split, so it is noisy.
 - A predicted BACE-1 activity is a computational estimate. It does not show experimental activity, safety or clinical value.
 - Data: MoleculeNet BACE (Subramanian et al., J Chem Inf Model 2016; packaged by Wu et al., MoleculeNet, Chem Sci 2018). RDKit and PyTorch Geometric are used as tools.
+
+
+## 📸 Project Screenshots
+
+### Frontend Dashboard
+
+![BACE-XGNN Frontend Dashboard](docs/images/frontend_image.png)
+
+### Molecular Prediction Interface
+
+![BACE-XGNN Prediction Interface](docs/images/frontend2_image.png)
+
+### Model Performance Dashboard
+
+![BACE-XGNN Performance Dashboard](docs/images/frontend3_image.png)
+
+### Additional Frontend View
+
+![BACE-XGNN Additional View](docs/images/frontend4_image.png)
+
+### Confusion Matrix
+
+![BACE-XGNN Confusion Matrix](artifacts/confusion_matrix.png)
+
+### ROC Curve
+
+![BACE-XGNN ROC Curve](artifacts/roc_curve.png)
